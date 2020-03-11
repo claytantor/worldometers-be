@@ -1,0 +1,14 @@
+[Unit]
+Description=worldometersbe
+After=multi-user.target
+
+[Service]
+ExecStart={{dir}}/venv/bin/python -u {{dir}}/app.py --config {{dir}}/config.yml
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=worldometersbe
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target

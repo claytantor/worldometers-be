@@ -1,0 +1,37 @@
+worldometers:
+  flashlex:
+    apiEndpoint: https://api.flashlex.com/dev/v1
+    user: truoota@gmail.com
+    password: Sooper90Seecret! 
+    thingId: 48338542-9866-4046-9ecc-ad74e1807cc5
+  services:
+    - name: Coronavirus Cases Worldwide Countries Table
+      id: coronavirus_countries
+      type: table
+      url: https://www.worldometers.info/coronavirus/
+      xpath: //table[@id="main_table_countries"]//tr
+      metrics:
+        - name: Coronavirus Cases Japan
+          color: #aaffcc
+          id: metric_covid19_cases_japan_current
+          type: column_filtered_value
+          filterColumnIndex: 0
+          filterColumnValue: Japan
+          filterColumnTest: eq
+          valueColumnIndex: 1
+        - name: Total Coronavirus Cases USA
+          color: #bbffaa
+          id: metric_covid19_cases_usa_current
+          type: column_filtered_value
+          filterColumnIndex: 0
+          filterColumnValue: USA
+          filterColumnTest: eq
+          valueColumnIndex: 1
+        - name: New Coronavirus Cases USA
+          color: #cc11cc
+          id: metric_covid19_cases_usa_new
+          type: column_filtered_value
+          filterColumnIndex: 0
+          filterColumnValue: USA
+          filterColumnTest: eq
+          valueColumnIndex: 2
